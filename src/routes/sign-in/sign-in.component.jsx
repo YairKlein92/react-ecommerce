@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
+import {
+  createUserDocumentFromAuth,
+  signInWithGooglePopup,
+} from '../../utils/firebase/firebase.utils';
 
 const SignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -7,8 +10,9 @@ const SignIn = () => {
   const logGoogleUser = async () => {
     setIsLoading(true);
     try {
-      const response = await signInWithGooglePopup();
-      console.log(response);
+      const { user } = await signInWithGooglePopup();
+      createUserDocumentFromAuth(user);
+      console.log('user In sign in component', user);
     } catch (error) {
       console.error('Error during sign-in:', error);
     } finally {
