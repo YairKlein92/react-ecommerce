@@ -40,13 +40,14 @@ const SignUpForm = () => {
 
       console.log('User successfully created:', user);
     } catch (err) {
-      // Use 'err', not 'error'
       if (err.code === 'auth/email-already-in-use') {
-        // Correct usage
         alert('Email already in use');
+      } else if (err.code === 'auth/wrong-password') {
+        // not working yet - needs polishing
+        alert('Wrong password');
       } else {
         console.log('Error during user creation:', err.message);
-        setError('Error creating user: ' + err.message); // Update error state
+        setError(`Error creating user: ${err.message}`);
       }
     }
   };
@@ -101,7 +102,7 @@ const SignUpForm = () => {
         />
 
         <Button buttonType="inverted" type="submit">
-          Submit
+          Sign up
         </Button>
       </form>
     </div>
