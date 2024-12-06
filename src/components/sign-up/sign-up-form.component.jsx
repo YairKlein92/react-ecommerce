@@ -36,17 +36,17 @@ const SignUpForm = () => {
       );
 
       await createUserDocumentFromAuth(user, { displayName });
-      // after creatign user, delete form
       resetFormField();
 
       console.log('User successfully created:', user);
-      // Optionally, you could redirect to another page or handle the user further here
     } catch (err) {
-      if (error.code === 'auth/email-already-in-use') {
+      // Use 'err', not 'error'
+      if (err.code === 'auth/email-already-in-use') {
+        // Correct usage
         alert('Email already in use');
       } else {
         console.log('Error during user creation:', err.message);
-        setError('Error creating user: ' + err.message);
+        setError('Error creating user: ' + err.message); // Update error state
       }
     }
   };
