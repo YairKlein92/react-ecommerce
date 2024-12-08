@@ -1,8 +1,7 @@
 import './sign-in-form.styles.scss';
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../../contexts/user.context';
+import React, { useState } from 'react'; // no need for useContext
+// import { UserContext } from '../../contexts/user.context';   no longer needed bc of the Context
 import {
-  createUserDocumentFromAuth,
   signInWithGooglePopup,
   singInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
@@ -17,14 +16,17 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const { setCurrentUser } = useContext(UserContext);
+  // const { setCurrentUser } = useContext(UserContext);   no longer needed bc of the Context
   const resetFormField = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    // const { user } = no longer needed bc of the Context
+    await signInWithGooglePopup();
+    // setCurrentUser(user);   no longer needed bc of the Context
+    // moved to user-context.jsx
+    // await createUserDocumentFromAuth();
   };
 
   const handleSubmit = async (event) => {
@@ -35,8 +37,8 @@ const SignInForm = () => {
         email,
         password,
       );
-      setCurrentUser(user);
-      resetFormField(); // Optionally reset fields after successful login
+      // setCurrentUser(user);    no longer needed bc of the Context
+      resetFormField();
     } catch (err) {
       console.error('Error signing in:', err);
     }
