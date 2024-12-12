@@ -1,5 +1,6 @@
 // import SHOP_DATA from '../shop-data.js';
 import { createContext, useEffect, useState } from 'react';
+import SHOP_DATA from '../shop-data';
 import {
   addCollectionAndDocuments,
   getCategoriesAndDocuments,
@@ -13,9 +14,9 @@ export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
 
   //only one time!
-  // useEffect(() => {
-  //   addCollectionAndDocuments('categories', SHOP_DATA);
-  // }, []);
+  useEffect(() => {
+    addCollectionAndDocuments('categories', SHOP_DATA);
+  }, []);
 
   useEffect(() => {
     const getCategoriesMap = async () => {
