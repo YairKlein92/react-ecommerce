@@ -5,35 +5,40 @@ const Home = () => {
   const categories = [
     {
       id: 1,
-      title: 'hats',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+      title: 'concerts',
+      imageUrl:
+        'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734029488/concerts_dfdzrg.avif',
     },
     {
       id: 2,
-      title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      title: 'sport',
+      imageUrl:
+        'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1678869038/cld-sample-3.jpg',
     },
     {
       id: 3,
-      title: 'sneakers',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+      title: 'art & comedy',
+      imageUrl:
+        'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030150/art_bz6rkb.jpg',
     },
     {
       id: 4,
-      title: 'womens',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+      title: 'workshops',
+      imageUrl:
+        'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1678869038/cld-sample-4.jpg',
     },
     {
       id: 5,
-      title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      title: 'festivals',
+      imageUrl:
+        'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030219/festivals_kvwvwt.jpg',
     },
   ];
 
   return (
-    <div>     <Outlet />
+    <div>
+      <Outlet />
       <Directory categories={categories} />
-
     </div>
   );
 };

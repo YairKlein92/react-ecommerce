@@ -4,32 +4,37 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Rock Festival',
-        imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
+        name: 'Rock concert',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030387/rock-music_iol0hi.jpg',
         price: 120,
       },
       {
         id: 2,
         name: 'Jazz Night',
-        imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030539/jazz-night_obmi6z.jpg',
         price: 75,
       },
       {
         id: 3,
         name: 'Pop Extravaganza',
-        imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030676/pop_akoelb.jpg',
         price: 100,
       },
       {
         id: 4,
         name: 'Indie Vibes',
-        imageUrl: 'https://i.ibb.co/RjBLWxB/grey-brim.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030746/indie_utjv8k.jpg',
         price: 90,
       },
       {
         id: 5,
         name: 'Symphony Orchestra',
-        imageUrl: 'https://i.ibb.co/YTjW3vF/green-beanie.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030816/symphony_oekmqs.jpg',
         price: 150,
       },
     ],
@@ -40,25 +45,29 @@ const SHOP_DATA = [
       {
         id: 6,
         name: 'Football Championship',
-        imageUrl: 'https://i.ibb.co/rKBDvJX/palm-tree-cap.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031080/football_onbck5.jpg',
         price: 200,
       },
       {
         id: 7,
-        name: 'Basketball Finals',
-        imageUrl: 'https://i.ibb.co/bLB646Z/red-beanie.png',
-        price: 180,
+        name: 'Chess League',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031025/chess_iwgcdz.jpg',
+        price: 70,
       },
       {
         id: 8,
-        name: 'Tennis Open',
-        imageUrl: 'https://i.ibb.co/1f2nWMM/wolf-cap.png',
+        name: 'Rowing',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031250/rowing_itkts9.jpg',
         price: 150,
       },
       {
         id: 9,
-        name: 'Marathon',
-        imageUrl: 'https://i.ibb.co/X2VJP2W/blue-snapback.png',
+        name: 'Spartan race',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734030946/spartan_agvoyq.jpg',
         price: 50,
       },
     ],
@@ -69,25 +78,29 @@ const SHOP_DATA = [
       {
         id: 10,
         name: 'Broadway Show',
-        imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734032367/theatre_ldyxvc.jpg',
         price: 250,
       },
       {
         id: 11,
-        name: 'Ballet Performance',
-        imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
+        name: 'Dance Performance',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734032087/dance_uxixg3.jpg',
         price: 200,
       },
       {
         id: 12,
         name: 'Stand-Up Comedy',
-        imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734032152/comedy_iqzhlf.jpg',
         price: 100,
       },
       {
         id: 13,
         name: 'Art Exhibition',
-        imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734032212/art_gall_vfzueh.jpg',
         price: 75,
       },
     ],
@@ -97,26 +110,30 @@ const SHOP_DATA = [
     items: [
       {
         id: 14,
-        name: 'Photography Workshop',
-        imageUrl: 'https://i.ibb.co/QcvzydB/nikes-red.png',
+        name: 'Art Workshop',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734029919/art_p3awfn.jpg',
         price: 100,
       },
       {
         id: 15,
         name: 'Cooking Class',
-        imageUrl: 'https://i.ibb.co/fMTV342/nike-brown.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1678869025/samples/food/spices.jpg',
         price: 120,
       },
       {
         id: 16,
         name: 'Coding Bootcamp',
-        imageUrl: 'https://i.ibb.co/w4k6Ws9/nike-funky.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734032464/coding_stvaf9.jpg',
         price: 300,
       },
       {
         id: 17,
         name: 'Yoga Retreat',
-        imageUrl: 'https://i.ibb.co/Mhh6wBg/timberlands.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734029803/sports_acybqq.jpg',
         price: 150,
       },
     ],
@@ -126,26 +143,30 @@ const SHOP_DATA = [
     items: [
       {
         id: 18,
-        name: 'Food Festival',
-        imageUrl: 'https://i.ibb.co/XzcwL5s/black-shearling.png',
+        name: 'Wine Festival',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031657/winefest_tu4z2u.jpg',
         price: 50,
       },
       {
         id: 19,
         name: 'Film Festival',
-        imageUrl: 'https://i.ibb.co/mJS6vz0/blue-jean-jacket.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031710/movie_drefyd.jpg',
         price: 80,
       },
       {
         id: 20,
         name: 'Cultural Fair',
-        imageUrl: 'https://i.ibb.co/N71k1ML/grey-jean-jacket.png',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031872/culture_trf2ht.jpg',
         price: 40,
       },
       {
         id: 21,
-        name: 'Music Carnival',
-        imageUrl: 'https://i.ibb.co/s96FpdP/brown-shearling.png',
+        name: 'Carnival',
+        imageUrl:
+          'https://res.cloudinary.com/dvbgjm0xm/image/upload/v1734031759/carnival_b5hotd.jpg',
         price: 150,
       },
     ],

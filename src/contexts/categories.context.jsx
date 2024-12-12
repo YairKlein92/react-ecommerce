@@ -14,9 +14,9 @@ export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
 
   //only one time!
-  useEffect(() => {
-    addCollectionAndDocuments('categories', SHOP_DATA);
-  }, []);
+  // useEffect(() => {
+  //   addCollectionAndDocuments('categories', SHOP_DATA);
+  // }, []);
 
   useEffect(() => {
     const getCategoriesMap = async () => {
