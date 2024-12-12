@@ -1,4 +1,5 @@
 // import { getAnalytics } from 'firebase/analytics';
+// for changing content, go to step 10
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
@@ -14,7 +15,9 @@ import {
   collection,
   doc,
   getDoc,
+  getDocs,
   getFirestore,
+  query,
   setDoc,
   writeBatch,
 } from 'firebase/firestore';
@@ -59,6 +62,21 @@ export const addCollectionAndDocuments = async (
   await batch.commit();
   console.log('done');
 };
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories');
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+};
+
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {},
@@ -74,6 +92,7 @@ export const createUserDocumentFromAuth = async (
 
   // if user data doesnt exist
   // create / set the doc with the data from useruth in my collection
+
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -120,3 +139,4 @@ export const signOutUser = () => {
 // https://firebase.google.com/docs/auth/web/manage-users
 export const onAuthStateChangeListener = (callback) =>
   onAuthStateChanged(auth, callback);
+// onAuthStateChanged(auth, callback);
