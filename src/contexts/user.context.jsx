@@ -9,7 +9,7 @@ export const UserContext = createContext({
   currentUser: null,
   setCurrentUSer: () => null,
 });
-
+// app's UI components.
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const value = { currentUser, setCurrentUser };
