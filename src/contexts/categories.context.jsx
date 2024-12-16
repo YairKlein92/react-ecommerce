@@ -13,7 +13,7 @@ export const CategoriesContext = createContext({
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
 
-  //only one time!
+  // only one time!
   // useEffect(() => {
   //   addCollectionAndDocuments('categories', SHOP_DATA);
   // }, []);

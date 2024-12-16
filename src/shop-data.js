@@ -40,7 +40,7 @@ const SHOP_DATA = [
     ],
   },
   {
-    title: 'Sports',
+    title: 'Sport',
     items: [
       {
         id: 6,
@@ -73,7 +73,7 @@ const SHOP_DATA = [
     ],
   },
   {
-    title: 'Theater & Arts',
+    title: 'Art & Comedy',
     items: [
       {
         id: 10,
