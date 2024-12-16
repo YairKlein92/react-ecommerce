@@ -1,4 +1,4 @@
-import './directory-item.styles.scss';
+import {BackgroundImage, DirectoryItemContainer, Body} from './directory-item.styles';
 
 // elements on the homepage
 
@@ -8,18 +8,19 @@ const DirectoryItem = ({ category: { imageUrl, title } }) => {
   // const { imageUrl, title } = category;
 
   return (
-    <div className="directory-item-container">
-      <div
-        className="background-image"
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-        }}
+    <DirectoryItemContainer>
+      <BackgroundImage
+        //because of the styled component:
+        imageUrl={imageUrl}
+        // style={{
+        //   backgroundImage: `url(${imageUrl})`,
+        // }}
       />
-      <div className="body">
+      <Body>
         <h2>{title}</h2>
         <p>Shop</p>
-      </div>
-    </div>
+      </Body>
+    </DirectoryItemContainer>
   );
 };
 
