@@ -1,6 +1,6 @@
 // import SHOP_DATA from '../shop-data.js';
 import { createContext, useEffect, useState } from 'react';
-import SHOP_DATA from '../shop-data';
+// import SHOP_DATA from '../shop-data';
 import {
   addCollectionAndDocuments,
   getCategoriesAndDocuments,
