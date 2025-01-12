@@ -9,7 +9,7 @@ import Shop from './routes/shop/shop.component';
 import { setCurrentUser } from './store/user/user.action';
 import {
   createUserDocumentFromAuth,
-  onAuthStateChangeListener,
+  onAuthStateChangedListener,
 } from './utils/firebase/firebase.utils';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
 
   useEffect(() => {
     // stop listening
-    const unsubscribe = onAuthStateChangeListener((user) => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         // taken from sign-in-form
         // If a user signs in, we create a document in the database for them (if it doesn't exist already).
@@ -30,7 +30,7 @@ const App = () => {
     // Cleanup function: If this component is removed, stop the listener to save memory.
 
     return unsubscribe;
-  }, []); // Adding dispatch removes the message, but it is not needed, without this is also working just fine
+  }, [dispatch]); // Adding dispatch removes the message, but it is not needed, without this is also working just fine
 
   return (
     <Routes>

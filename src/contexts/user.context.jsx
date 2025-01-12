@@ -1,34 +1,53 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 import {
   createUserDocumentFromAuth,
-  onAuthStateChangeListener,
+  onAuthStateChangedListener,
 } from '../utils/firebase/firebase.utils';
 
-// actual value I wanna access
 export const UserContext = createContext({
+  setCurrentUser: () => null,
   currentUser: null,
-  setCurrentUSer: () => null,
 });
-// app's UI components.
+
+export const USER_ACTION_TYPES = {
+  SET_CURRENT_USER: 'SET_CURRENT_USER',
+};
+
+const INITIAL_STATE = {
+  currentUser: null,
+};
+
+const userReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
+      return { ...state, currentUser: payload };
+    default:
+      throw new Error(`Unhandled type ${type} in userReducer`);
+  }
+};
+
 export const UserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const value = { currentUser, setCurrentUser };
+  const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE);
+
+  const setCurrentUser = (user) =>
+    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, currentUser: user });
+
   useEffect(() => {
-    // stop listening
-    const unsubscribe = onAuthStateChangeListener((user) => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
-        // taken from sign-in-form
-        // If a user signs in, we create a document in the database for them (if it doesn't exist already).
-        // This makes sure their info is saved.
         createUserDocumentFromAuth(user);
       }
-      console.log(user);
       setCurrentUser(user);
     });
-    // Cleanup function: If this component is removed, stop the listener to save memory.
 
     return unsubscribe;
   }, []);
+
+  const value = {
+    currentUser,
+  };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

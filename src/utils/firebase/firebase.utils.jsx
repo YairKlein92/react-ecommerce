@@ -1,5 +1,3 @@
-// import { getAnalytics } from 'firebase/analytics';
-// for changing content, go to step 10
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
@@ -23,23 +21,22 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-  // it is ok to share this api key
-  apiKey: 'AIzaSyA9QwLG3CCNPrsaEQ6n8U4GxHEIX_WgFqI',
-  authDomain: 'ecommerce-store-9a133.firebaseapp.com',
-  projectId: 'ecommerce-store-9a133',
-  storageBucket: 'ecommerce-store-9a133.firebasestorage.app',
-  messagingSenderId: '676028009595',
-  appId: '1:676028009595:web:a0fd6995c709a0a04926de',
-  measurementId: 'G-34G323RG0Y',
+  apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
+  authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
+  projectId: 'crwn-clothing-db-98d4d',
+  storageBucket: 'crwn-clothing-db-98d4d.appspot.com',
+  messagingSenderId: '626766232035',
+  appId: '1:626766232035:web:506621582dab103a4d08d6',
 };
 
-// Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(firebaseApp);
+
 const googleProvider = new GoogleAuthProvider();
+
 googleProvider.setCustomParameters({
   prompt: 'select_account',
 });
+
 export const auth = getAuth();
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
@@ -51,6 +48,7 @@ export const db = getFirestore();
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd,
+  field,
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -59,6 +57,7 @@ export const addCollectionAndDocuments = async (
     const docRef = doc(collectionRef, object.title.toLowerCase());
     batch.set(docRef, object);
   });
+
   await batch.commit();
   console.log('done');
 };
@@ -81,17 +80,11 @@ export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {},
 ) => {
-  // if there is no userAuth, exit
   if (!userAuth) return;
+
   const userDocRef = doc(db, 'users', userAuth.uid);
 
-  console.log(userDocRef);
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot);
-  console.log(userSnapshot.exists());
-
-  // if user data doesnt exist
-  // create / set the doc with the data from useruth in my collection
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
@@ -108,35 +101,23 @@ export const createUserDocumentFromAuth = async (
       console.log('error creating the user', error.message);
     }
   }
-  //  if user data exists return
+
   return userDocRef;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return null;
+  if (!email || !password) return;
 
-  try {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password,
-    );
-    return userCredential;
-  } catch (error) {
-    console.error('Error creating user:', error.message);
-    throw error;
-  }
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
 
 export const singInAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return null;
+  if (!email || !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
-export const signOutUser = () => {
-  signOut(auth);
-};
-// https://firebase.google.com/docs/auth/web/manage-users
-export const onAuthStateChangeListener = (callback) =>
+
+export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
-// onAuthStateChanged(auth, callback);

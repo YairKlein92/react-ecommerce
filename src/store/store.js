@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { applyMiddleware, compose, createStore } from 'redux';
 import logger from 'redux-logger';
 import { rootReducer } from './root-reducer';
 
@@ -6,9 +6,6 @@ const middleWares = [process.env.NODE_ENV === 'development' && logger].filter(
   Boolean,
 );
 
-export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(middleWares),
-  devTools: process.env.NODE_ENV === 'development', // Enable Redux DevTools in development mode
-});
+const composedEnhancers = compose(applyMiddleware(...middleWares));
+
+export const store = createStore(rootReducer, undefined, composedEnhancers);
