@@ -1,12 +1,12 @@
-import './sign-in-form.styles.scss';
-import React, { useState } from 'react'; // no need for useContext
-// import { UserContext } from '../../contexts/user.context';   no longer needed bc of the Context
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
-  signInWithGooglePopup,
-  singInAuthUserWithEmailAndPassword,
-} from '../../utils/firebase/firebase.utils';
+  emailSignInStart,
+  googleSignInStart,
+} from '../../store/user/user.action';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
+import { ButtonsContainer, SignInContainer } from './sign-in-form.styles';
 
 const defaultFormFields = {
   email: '',
@@ -14,76 +14,69 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  // const { setCurrentUser } = useContext(UserContext);   no longer needed bc of the Context
-  const resetFormField = () => {
+
+  const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    // const { user } = no longer needed bc of the Context
-    await signInWithGooglePopup();
-    // setCurrentUser(user);   no longer needed bc of the Context
-    // moved to user-context.jsx
-    // await createUserDocumentFromAuth();
+    dispatch(googleSignInStart());
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { user } = await singInAuthUserWithEmailAndPassword(
-        email,
-        password,
-      );
-      // setCurrentUser(user);    no longer needed bc of the Context
-      resetFormField();
-    } catch (err) {
-      console.error('Error signing in:', err);
+      dispatch(emailSignInStart(email, password));
+      resetFormFields();
+    } catch (error) {
+      console.log('user sign in failed', error);
     }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setFormFields({ ...formFields, [name]: value });
   };
 
   return (
-    <div className="sign-up-container">
+    <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
-          id="email"
-          name="email"
           type="email"
+          required
           onChange={handleChange}
+          name="email"
           value={email}
         />
+
         <FormInput
           label="Password"
-          id="password"
           type="password"
-          name="password"
+          required
           onChange={handleChange}
+          name="password"
           value={password}
         />
-        <div className="buttons-container">
-          <Button buttonType={BUTTON_TYPE_CLASSES.inverted} type="submit">
-            Sign in
-          </Button>
+        <ButtonsContainer>
+          <Button type="submit">Sign In</Button>
           <Button
             buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"
             onClick={signInWithGoogle}
           >
-            Google sign in
+            Sign In With Google
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 
