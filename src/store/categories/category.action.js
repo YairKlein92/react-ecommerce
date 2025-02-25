@@ -12,3 +12,8 @@ export const fetchCategoriesSuccess = (categoriesArray) =>
 
 export const fetchCategoriesFailed = (error) =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
+export const RESTORE_DATABASE_START = 'RESTORE_DATABASE_START';
+
+export const restoreDatabaseStart = () => ({
+  type: RESTORE_DATABASE_START,
+});

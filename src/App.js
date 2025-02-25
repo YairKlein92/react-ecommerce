@@ -6,6 +6,7 @@ import Checkout from './routes/checkout/checkout.component';
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import Shop from './routes/shop/shop.component';
+import { restoreDatabaseStart } from './store/categories/category.action'; // Import action
 import { setCurrentUser } from './store/user/user.action';
 import {
   createUserDocumentFromAuth,
@@ -14,7 +15,9 @@ import {
 
 const App = () => {
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(restoreDatabaseStart()); // This triggers the Saga to restore the database
+  }, [dispatch]);
   useEffect(() => {
     // stop listening
     const unsubscribe = onAuthStateChangedListener((user) => {
