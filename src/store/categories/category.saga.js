@@ -15,12 +15,13 @@ import { CATEGORIES_ACTION_TYPES } from './category.types';
 export function* fetchCategoriesAsync() {
   try {
     const categoriesArray = yield call(getCategoriesAndDocuments, 'categories');
+    console.log('Fetched categories from Firestore:', categoriesArray); // Log fetched categories
     yield put(fetchCategoriesSuccess(categoriesArray));
   } catch (error) {
+    console.error('Error fetching categories:', error); // Log errors
     yield put(fetchCategoriesFailed(error));
   }
 }
-
 export function* onFetchCategories() {
   yield takeLatest(
     CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START,

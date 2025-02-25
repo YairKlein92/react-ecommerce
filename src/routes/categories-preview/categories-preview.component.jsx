@@ -10,6 +10,7 @@ import {
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
+  console.log('Categories Map:', categoriesMap); // Log categoriesMap to see the data
 
   return (
     <Fragment>
