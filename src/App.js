@@ -6,34 +6,14 @@ import Checkout from './routes/checkout/checkout.component';
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import Shop from './routes/shop/shop.component';
-import { restoreDatabaseStart } from './store/categories/category.action'; // Import action
-import { setCurrentUser } from './store/user/user.action';
-import {
-  createUserDocumentFromAuth,
-  onAuthStateChangedListener,
-} from './utils/firebase/firebase.utils';
+import { checkUserSession } from './store/user/user.action';
 
 const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(restoreDatabaseStart()); // This triggers the Saga to restore the database
-  }, [dispatch]);
-  useEffect(() => {
-    // stop listening
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        // taken from sign-in-form
-        // If a user signs in, we create a document in the database for them (if it doesn't exist already).
-        // This makes sure their info is saved.
-        createUserDocumentFromAuth(user);
-      }
-      console.log(user);
-      dispatch(setCurrentUser(user));
-    });
-    // Cleanup function: If this component is removed, stop the listener to save memory.
 
-    return unsubscribe;
-  }, [dispatch]); // Adding dispatch removes the message, but it is not needed, without this is also working just fine
+  useEffect(() => {
+    dispatch(checkUserSession());
+  }, []);
 
   return (
     <Routes>
