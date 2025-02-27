@@ -3,4 +3,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px; /* Optional: adds space between the flex items */
+}
+
+/* Medium screens (tablets, etc.) */
+@media screen and (max-width: 768px) {
+  .directory-container {
+    justify-content: center; /* Center content on smaller screens */
+  }
+}
+
+/* Small screens (mobile) */
+@media screen and (max-width: 480px) {
+  .directory-container {
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center items */
+  }
 }
