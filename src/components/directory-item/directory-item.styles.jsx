@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// Background image for the directory item
 export const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
@@ -9,7 +8,6 @@ export const BackgroundImage = styled.div`
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
-// Body content for the directory item (text part)
 export const Body = styled.div`
   height: 90px;
   padding: 0 25px;
@@ -34,35 +32,33 @@ export const Body = styled.div`
     font-size: 16px;
   }
 
-  /* Responsive design */
   @media screen and (max-width: 768px) {
-    height: 80px; /* Reduce height on smaller screens */
-    padding: 0 15px; /* Reduce padding */
+    height: 80px;
+    padding: 0 15px;
 
     h2 {
-      font-size: 20px; /* Slightly smaller font size for headings */
+      font-size: 20px;
     }
 
     p {
-      font-size: 14px; /* Smaller text on smaller screens */
+      font-size: 14px;
     }
   }
 
   @media screen and (max-width: 480px) {
-    height: 70px; /* Further reduce height on mobile */
-    padding: 0 10px; /* Less padding on mobile */
+    height: 70px;
+    padding: 0 10px;
 
     h2 {
-      font-size: 18px; /* Further reduce font size for small screens */
+      font-size: 18px;
     }
 
     p {
-      font-size: 12px; /* Smaller font size for paragraph */
+      font-size: 12px;
     }
   }
 `;
 
-// Directory item container that holds the background and body
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
   height: 240px;
@@ -95,17 +91,15 @@ export const DirectoryItemContainer = styled.div`
     margin-left: 7.5px;
   }
 
-  // Media query for small screens (mobile)
   @media screen and (max-width: 768px) {
-    min-width: 45%; // On smaller screens, make each item take up 45% of the container width
-    height: 200px; // Slightly reduce the height
+    min-width: 45%;
+    height: 200px;
   }
 
-  // Media query for very small screens (mobile phones)
   @media screen and (max-width: 480px) {
-    min-width: 100%; // On mobile phones, each item should take up 100% of the container width
-    height: 180px; // Adjust height for mobile
+    min-width: 100%;
+    height: 180px;
 
-    margin: 0 0 15px 0; // Remove side margins and add margin-bottom
+    margin: 0 0 15px 0;
   }
 `;

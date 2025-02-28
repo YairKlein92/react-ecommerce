@@ -24,35 +24,33 @@ export const CartDropdownContainer = styled.div`
     margin-top: auto;
   }
 
-  /* Make the cart dropdown responsive for smaller screens */
   @media screen and (max-width: 768px) {
-    width: 200px; /* Reduce the width */
-    height: 300px; /* Reduce the height */
-    top: 80px; /* Adjust the position to avoid overlap */
-    right: 20px; /* Adjust the position */
+    width: 200px;
+    height: 300px;
+    top: 80px;
+    right: 20px;
   }
 
   @media screen and (max-width: 480px) {
-    width: 160px; /* Further reduce width for very small screens */
-    height: 250px; /* Reduce height for smaller screens */
-    top: 70px; /* Adjust top position for better alignment */
-    right: 10px; /* Adjust right position */
-    padding: 15px; /* Less padding on small screens */
+    width: 160px;
+    height: 250px;
+    top: 70px;
+    right: 10px;
+    padding: 15px;
   }
 
   @media screen and (max-width: 320px) {
-    width: 140px; /* Make the dropdown even smaller on extra small screens */
-    height: 220px; /* Adjust height */
-    top: 60px; /* Adjust the position */
-    right: 5px; /* Adjust right position */
-    padding: 10px; /* Further reduce padding */
+    width: 140px;
+    height: 220px;
+    top: 60px;
+    right: 5px;
+    padding: 10px;
   }
 `;
 
 export const EmptyMessage = styled.span`
   font-size: 18px;
   margin: 50px auto;
-  /* Adjust font size for small screens */
   @media screen and (max-width: 480px) {
     font-size: 16px;
   }
@@ -64,7 +62,6 @@ export const CartItems = styled.div`
   flex-direction: column;
   overflow: scroll;
 
-  /* Adjust cart items' height for smaller screens */
   @media screen and (max-width: 480px) {
     height: 180px;
   }

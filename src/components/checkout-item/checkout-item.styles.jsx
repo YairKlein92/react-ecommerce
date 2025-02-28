@@ -9,18 +9,16 @@ export const CheckoutItemContainer = styled.div`
   font-size: 20px;
   align-items: center;
 
-  // Media query for smaller screens (tablets and below)
   @media screen and (max-width: 768px) {
-    font-size: 18px; /* Reduce font size on tablets */
-    padding: 10px 0; /* Reduce padding on smaller screens */
+    font-size: 18px;
+    padding: 10px 0;
   }
 
-  // Media query for small screens (mobile)
   @media screen and (max-width: 480px) {
-    flex-direction: row; /* Stack the items vertically */
-    font-size: 12px; /* Reduce font size even more for mobile */
-    padding: 8px 0; /* Reduce padding on mobile */
-    align-items: center; /* Align items to the left */
+    flex-direction: row;
+    font-size: 12px;
+    padding: 8px 0;
+    align-items: center;
     justify-content: center;
   }
 `;
@@ -35,35 +33,35 @@ export const ImageContainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    width: 30%; /* Slightly increase image width on tablets */
+    width: 30%;
   }
 
   @media screen and (max-width: 480px) {
     display: none;
-    width: 40%; /* Increase image width on mobile */
-    padding-right: 0; /* Remove right padding */
-    margin-bottom: 10px; /* Add some margin to space out from other elements */
+    width: 40%;
+    padding-right: 0;
+    margin-bottom: 10px;
   }
 `;
 
 export const BaseSpan = styled.span`
   width: 23%;
-  text-align: center; /* Align text to the left */
+  text-align: center;
 
   @media screen and (max-width: 768px) {
-    width: 30%; /* Adjust width on tablets */
+    width: 30%;
   }
 
   @media screen and (max-width: 480px) {
-    width: 100%; /* Stack spans on mobile */
-    margin-bottom: 10px; /* Add margin to separate from other elements */
-    font-size: 14px; /* Smaller font size on mobile */
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
   }
 `;
 
 export const Quantity = styled(BaseSpan)`
   display: flex;
-  justify-content: center; /* Center the quantity controls */
+  justify-content: center;
 `;
 
 export const Arrow = styled.div`
@@ -79,7 +77,7 @@ export const RemoveButton = styled.div`
   cursor: pointer;
 
   @media screen and (max-width: 480px) {
-    padding-left: 0; /* Reduce padding on mobile */
-    margin-top: 10px; /* Add margin to the top to give space when stacking */
+    padding-left: 0;
+    margin-top: 10px;
   }
 `;

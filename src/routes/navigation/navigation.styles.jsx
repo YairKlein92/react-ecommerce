@@ -17,30 +17,27 @@ export const NavigationContainer = styled.div`
   }
 `;
 
-// Styling for the logo container (responsive logo)
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 50px;
   padding: 25px;
 
-  /* Responsive adjustments */
   @media screen and (max-width: 768px) {
-    width: 50px; // Logo width on tablets
-    padding: 15px; // Less padding on tablets
+    width: 50px;
+    padding: 15px;
   }
 
   @media screen and (max-width: 480px) {
-    width: 10px; // Logo width on mobile devices
-    padding: 2px; // Less padding on mobile
+    width: 10px;
+    padding: 2px;
   }
 
   @media screen and (max-width: 256px) {
-    width: 40px; // Adjust logo size for very small screens
-    padding: 5px; // Adjust padding for small screens
+    width: 40px;
+    padding: 5px;
   }
 `;
 
-// Container for navigation links
 export const NavLinks = styled.div`
   width: 50%;
   height: 100%;
